@@ -5,6 +5,7 @@ const geocode = require("./utils/geocode");
 const getWheather = require("./utils/getwheather");
 
 const app = express();
+const port = process.env.PORT || 3000;
 
 //set up view engine and handlebars
 const viewPath = path.join(__dirname, "/templates/views");
@@ -116,6 +117,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Express server is up in port 3000");
+app.listen(port, () => {
+  console.log("Express server is up in port " + port);
 });
