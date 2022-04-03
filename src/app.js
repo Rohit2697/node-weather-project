@@ -88,7 +88,7 @@ app.get("/weather", (req, res) => {
     if (error) {
       return res.send({ error });
     }
-    getWheather(latitute, longitute, (error, forcast) => {
+    getWheather(latitute, longitute, (error, { img, forcast } = {}) => {
       if (error) {
         return res.send({ error });
       }
@@ -96,6 +96,7 @@ app.get("/weather", (req, res) => {
         query: req.query.address,
         placeName,
         forcast,
+        img,
       });
     });
   });

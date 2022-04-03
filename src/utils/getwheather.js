@@ -12,10 +12,20 @@ const getWheather = (latitute, longitute, callback) => {
     else if (body.error)
       callback("Unable to find the location, please try again", undefined);
     else {
-      callback(
-        undefined,
-        `its ${body.current.weather_descriptions[0]} out there, current tempurture is ${body.current.temperature} degree, feels like ${body.current.feelslike} degree and there is ${body.current.precip}% chance of rain`
-      );
+      callback(undefined, {
+        img: body.current.weather_icons[0],
+
+        forcast: `its ${
+          body.current.weather_descriptions[0]
+        } out there, current tempurture is ${
+          body.current.temperature
+        } degree, feels like ${body.current.feelslike} degree and there is ${
+          body.current.precip
+        }% chance of rain.
+        Humidity is ${body.current.humidity} and it is ${
+          body.current.is_day === "no" ? "Night" : "Day"
+        } time`,
+      });
     }
   });
 };
