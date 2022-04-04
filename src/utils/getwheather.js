@@ -17,7 +17,7 @@ const getWheather = (latitute, longitute, callback) => {
 
         forcast: `its ${
           body.current.weather_descriptions[0]
-        } out there, current tempurture is ${
+        } out there, current temperature is ${
           body.current.temperature
         } degree, feels like ${body.current.feelslike} degree and there is ${
           body.current.precip
